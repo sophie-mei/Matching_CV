@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<!doctype html>
+<html>
+<nav class="navbar navbar-lignt bg-light">
+    <from class="from-inline">
+        <input
+        class="from-control mr-sm-2"
+        type="search" placeholder="Name"
+        aria-label="Name"
+        name = 'name'
+        value ="">
+        <input
+        class="from-control mr-sm-2"
+        type="search" placeholder="Compétence"
+        aria-label="Compétence"
+        name = 'Compétence'
+        value ="">
+        <button class="btn btn-outline-succes my-2 my-sm-0" type="submit">Search</button>
+
+    </from>
+</nav>
+{% if result %}
+        <div class="txtCentrado margenSup20 grisDC">
+            <h3>We found {{ count}} result/s for your search </h3>
+        </div>
+            <div class="search results">
+                {% for my in results %}
+            <div class="images">   
+                <img src="{% static "img/compétence_icon.png" %}"hspace=5">{{my.0}}
+            </div>
+            <p></p>
+            {% endfor %}
+        </div>
+{%elif not search_term %}
+        <h3> Insert your search here.</h3>
+{%elif not results %}
+        <p>No results found.</p>
+{% endif %}
+</html>
