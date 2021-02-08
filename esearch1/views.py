@@ -23,5 +23,5 @@ def search_index(request):
     results = esearch(NOM = nom_term, compétence=compétence_term)
     print(results)
     context = {'results': results, 'count': len(results), 'search_term':  search_term}
-    return render(request,  'esearch1/accuiel.html',  context)
+    return render(request,  'esearch1/accueil.html',  context)
 

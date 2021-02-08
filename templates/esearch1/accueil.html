@@ -5,9 +5,9 @@
     <from class="from-inline">
         <input
         class="from-control mr-sm-2"
-        type="search" placeholder="Name"
-        aria-label="Name"
-        name = 'name'
+        type="search" placeholder="NOM"
+        aria-label="NOM"
+        name = 'NOM'
         value ="">
         <input
         class="from-control mr-sm-2"
@@ -18,22 +18,19 @@
         <button class="btn btn-outline-succes my-2 my-sm-0" type="submit">Search</button>
 
     </from>
-</nav>
-{% if result %}
-        <div class="txtCentrado margenSup20 grisDC">
-            <h3>We found {{ count}} result/s for your search </h3>
-        </div>
-            <div class="search results">
-                {% for my in results %}
-            <div class="images">   
-                <img src="{% static "img/compétence_icon.png" %}"hspace=5">{{my.0}}
-            </div>
-            <p></p>
-            {% endfor %}
-        </div>
+    {% if results %}
+    <div class="txtCentrado margenSup20 grisDC">
+        <h3>On a trouvé {{ count }} results de ton recherche </h3>
+         </div>
+             <div class="search results">
+                 {% for mytuple in results %}
+                      {{mytuple}}
+                      <p></p>
+                 {% endfor %}
+              </div>
 {%elif not search_term %}
-        <h3> Insert your search here.</h3>
+  <h3>Inserer te recherche ici.</h3>
 {%elif not results %}
-        <p>No results found.</p>
+  <p>pas de résultat trouvé.</p>
 {% endif %}
 </html>
